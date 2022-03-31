@@ -19,4 +19,13 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
-console.log(allSections);
+
+const langOptions = document.querySelector('#language').querySelectorAll('.dropdown-item');
+const form = document.querySelector('#language');
+const langField = document.querySelector('input[name="lang"]');
+langOptions.forEach((option, i) => {
+  option.addEventListener('click', function (e) {
+    langField.value = this.dataset.lang;
+    form.submit();
+  })
+});
